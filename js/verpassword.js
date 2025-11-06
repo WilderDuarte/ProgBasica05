@@ -13,7 +13,6 @@ function validar(){
     let uppercase = /[A-Z]/.test(password);
     let number = /\d/.test(password);
     let specialchar = /[\W_]/.test(password);
-    // alert(password.length);
     if(password.length < 8){
         Swal.fire(
             "Error",
@@ -21,12 +20,25 @@ function validar(){
             "error"
         );
         return
-    }else{
+    }
+    if(lowercase && uppercase && number && specialchar){
         Swal.fire(
             "Felicidades",
-            `Su contraseña es correcta: ${password}`,
+            "Su contraseña es correcta",
             "success"
         );
-        return
+    }else{
+        Swal.fire({
+            icon: "error",
+            title: "Contraseña invalida según:",
+            html: `
+                <ul style="text-aling:left; margin-left:20px;">
+                    <li>${number ? "✅" : "❌"} Al menos un número</li>
+                    <li>${lowercase ? "✅" : "❌"} Al menos una minúscula</li>
+                    <li>${uppercase ? "✅" : "❌"} Al menos una mayúscula</li>
+                    <li>${specialchar ? "✅" : "❌"} Al menos un caracter especial</li>
+                </ul>
+            `
+        });
     }
 }
