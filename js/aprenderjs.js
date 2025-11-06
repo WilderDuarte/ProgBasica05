@@ -80,21 +80,30 @@ if(edad > 5 && estatura >= 100){
     console.log("No tiene la edad y la estatura");
 }
 
-let age = parseInt(prompt("Ingrese su edad"))
+let age = parseInt(prompt("Ingrese su edad"));
 // para 13 niños
 // para 17 adolescentes
 // para 18-38 jovenes
 // para 39-59 adultos
 // para 60 tercera edad
 if(age >= 60){
-    console.log("TERCERA EDAD")
+    console.log("TERCERA EDAD");
 }else if(age >=39){
-    console.log("UN ADULTO")
+    console.log("UN ADULTO");
 }else if(age >=18){
-    console.log("UN JOVEN")
+    console.log("UN JOVEN");
 }else if(age >=12){
-    console.log("UN ADOLESCENTE")
+    console.log("UN ADOLESCENTE");
 }else{
-    console.log("UN NIÑO")
+    console.log("UN NIÑO");
 }
 
+let base = parseFloat(prompt("Ingrese la base (mayor que 0)"));
+let altura = parseFloat(prompt("Ingrese la altura (mayor que 0)"));
+
+if(base > 0 && altura > 0){
+    let area = base*altura;
+    Swal.fire("El área es igual a: " + altura);
+}else{
+    Swal.fire("❌ Ingrese valores válidos (mayores que cero)");
+}
