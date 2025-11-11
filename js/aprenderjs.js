@@ -25,7 +25,7 @@ let string = "texto"; // string
 let booelano =  false; // true
 let booelano_s =  "false"; // true
 let objeto_persona = {nombre:"wilder", apellido:"duarte", edad:33};
-let array = ["lunes","martes","miercoles","jueves","viernes","sabados","domingos"];
+let dias_semana = ["lunes","martes","miercoles","jueves","viernes","sabados","domingos"];
 let array_mixto = ["wilder",33,"duarte",20,12,91];
 let array_num = [1,2,3,4,5,6,7,8,9];
 let estudiantes = [
@@ -69,41 +69,82 @@ let com_tres = 10;
 // console.log(com_uno % com_dos);
 
 // ######### ESTRUCTURAS CONDICIONALES - IF
-let edad = parseInt(prompt("Ingrese su edad"));
-let estatura = parseInt(prompt("Ingrese su estatura (en cms)")); // Dada en centimetros
+// let edad = parseInt(prompt("Ingrese su edad"));
+// let estatura = parseInt(prompt("Ingrese su estatura (en cms)")); // Dada en centimetros
 
-if(edad > 5 && estatura >= 100){
-    console.log("Tiene la edad y la estatura");
-} else if(edad > 5 || estatura >= 100){
-    console.log("Tiene la edad o la estatura");
-}else{
-    console.log("No tiene la edad y la estatura");
-}
+// if(edad > 5 && estatura >= 100){
+//     console.log("Tiene la edad y la estatura");
+// } else if(edad > 5 || estatura >= 100){
+//     console.log("Tiene la edad o la estatura");
+// }else{
+//     console.log("No tiene la edad y la estatura");
+// }
 
-let age = parseInt(prompt("Ingrese su edad"));
+// let age = parseInt(prompt("Ingrese su edad"));
 // para 13 niños
 // para 17 adolescentes
 // para 18-38 jovenes
 // para 39-59 adultos
 // para 60 tercera edad
-if(age >= 60){
-    console.log("TERCERA EDAD");
-}else if(age >=39){
-    console.log("UN ADULTO");
-}else if(age >=18){
-    console.log("UN JOVEN");
-}else if(age >=12){
-    console.log("UN ADOLESCENTE");
-}else{
-    console.log("UN NIÑO");
+// if(age >= 60){
+//     console.log("TERCERA EDAD");
+// }else if(age >=39){
+//     console.log("UN ADULTO");
+// }else if(age >=18){
+//     console.log("UN JOVEN");
+// }else if(age >=12){
+//     console.log("UN ADOLESCENTE");
+// }else{
+//     console.log("UN NIÑO");
+// }
+
+// let base = parseFloat(prompt("Ingrese la base (mayor que 0)"));
+// let altura = parseFloat(prompt("Ingrese la altura (mayor que 0)"));
+
+// if(base > 0 && altura > 0){
+//     let area = base*altura;
+//     Swal.fire("El área es igual a: " + area);
+// }else{
+//     Swal.fire("❌ Ingrese valores válidos (mayores que cero)");
+// }
+
+// ######### CICLOS REPETITIVOS - FOR
+// Los ciclos for tienen tres parámetros
+for(let i=0;i<=10;i++){ // i+=2 
+    if(i!=0){
+        // console.log(i);
+    }
 }
 
-let base = parseFloat(prompt("Ingrese la base (mayor que 0)"));
-let altura = parseFloat(prompt("Ingrese la altura (mayor que 0)"));
-
-if(base > 0 && altura > 0){
-    let area = base*altura;
-    Swal.fire("El área es igual a: " + altura);
-}else{
-    Swal.fire("❌ Ingrese valores válidos (mayores que cero)");
+for(let i=10;i>=0;i--){ // i-=2
+    if(i!=0){
+        // console.log(i);
+    }
 }
+
+for(let j=0;j<dias_semana.length;j++){
+    // console.log(dias_semana[j])
+}
+
+// const numero = 5;
+// const numero = parseInt(prompt("Ingrese un número para hacer la tabla de multiplicación"));
+// for(let i= 1;i<=10;i++){
+//     // console.log(numero+"*"+i+"="+(numero*i));
+//     // console.log(`${numero}*${i}=${numero*i}`);
+// }
+
+// const palabra = "javascript";
+// console.log(palabra.length);
+let pal_input = prompt("Ingrese la palabra");
+let letra_input = prompt("Ingrese la letra a buscar");
+pal_input_minus = pal_input.toLowerCase();
+letra_input_minus = letra_input.toLowerCase();
+let cont = 0;
+for(let p=0;p<pal_input.length;p++){
+    // console.log(palabra[p]);
+    if(pal_input_minus[p] == letra_input_minus){
+        cont++;
+    }
+}
+// console.log("La letra a se encuentra " + cont + " veces");
+Swal.fire("La letra " + letra_input.toUpperCase() + " se encuentra " + cont + " veces en la palabra " + pal_input.toUpperCase());
