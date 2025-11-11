@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Inversor de Palabra</title>
+  <style>
+    body { font-family: Arial; margin: 40px; }
+    input, button { padding: 8px; margin-bottom: 10px; }
+    #resultado { margin-top: 20px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h2>Inversor de Palabra</h2>
+  <input type="text" id="texto" placeholder="Escribe una palabra">
+  <button onclick="invertir()">Invertir</button>
+  <button onclick="limpiar()">Limpiar</button>
+  <div id="resultado"></div>
+
+  <script>
+    function invertir() {
+      let texto = document.getElementById("texto").value;
+      let invertido = texto.split('').reverse().join('');
+      document.getElementById("resultado").innerText = invertido;
+    }
+
+    function limpiar() {
+      document.getElementById("texto").value = "";
+      document.getElementById("resultado").innerText = "";
+      document.getElementById("texto").focus();
+    }
+  </script>
+</body>
+</html>

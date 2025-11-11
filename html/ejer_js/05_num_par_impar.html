@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Contador de Pares e Impares</title>
+  <style>
+    body { font-family: Arial; margin: 40px; }
+    input, button { padding: 8px; margin-bottom: 10px; }
+    #resultado { margin-top: 20px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h2>Contador de Pares e Impares</h2>
+  <input type="text" id="numeros" placeholder="Ej: 1,2,3,4,5">
+  <button onclick="contar()">Contar</button>
+  <button onclick="limpiar()">Limpiar</button>
+  <div id="resultado"></div>
+
+  <script>
+    function contar() {
+      let input = document.getElementById("numeros").value;
+      let nums = input.split(',').map(n => parseInt(n.trim()));
+      if (nums.some(isNaN)) {
+        document.getElementById("resultado").innerText = "Ingrese solo números separados por comas.";
+        return;
+      }
+      let pares = nums.filter(n => n % 2 === 0).length;
+      let impares = nums.filter(n => n % 2 !== 0).length;
+      document.getElementById("resultado").innerHTML = `Pares: ${pares} <br> Impares: ${impares}`;
+    }
+
+    function limpiar() {
+      document.getElementById("numeros").value = "";
+      document.getElementById("resultado").innerText = "";
+      document.getElementById("numeros").focus();
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Contador de Vocales y Consonantes</title>
+  <style>
+    body { font-family: Arial; margin: 40px; }
+    input { padding: 8px; margin-bottom: 10px; }
+    button { padding: 8px 12px; margin-right: 8px; }
+    #resultado { margin-top: 20px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h2>Contador de Vocales y Consonantes</h2>
+  <input type="text" id="texto" placeholder="Escribe una palabra o frase">
+  <button onclick="contar()">Contar</button>
+  <button onclick="limpiar()">Limpiar</button>
+  <div id="resultado"></div>
+
+  <script>
+    function contar() {
+      let texto = document.getElementById("texto").value.toLowerCase();
+      let vocales = "aeiou";
+      let contV = 0;
+      let contC = 0;
+
+      for (let char of texto) {
+        if (char >= 'a' && char <= 'z') {
+          if (vocales.includes(char)) contV++;
+          else contC++;
+        }
+      }
+
+      document.getElementById("resultado").innerHTML =
+        `Vocales: ${contV} <br> Consonantes: ${contC}`;
+    }
+
+    function limpiar() {
+      document.getElementById("texto").value = "";
+      document.getElementById("resultado").innerHTML = "";
+      document.getElementById("texto").focus();
+    }
+  </script>
+</body>
+</html>

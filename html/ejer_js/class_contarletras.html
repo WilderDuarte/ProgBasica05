@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Contar letra en palabra</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f4f4f9;
+      color: #333;
+    }
+    input {
+      margin: 8px 0;
+      padding: 8px;
+      font-size: 16px;
+    }
+    button {
+      padding: 8px 14px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      border-radius: 4px;
+      margin-right: 8px;
+    }
+    #btnContar {
+      background-color: #007bff;
+      color: white;
+    }
+    #btnContar:hover {
+      background-color: #0056b3;
+    }
+    #btnLimpiar {
+      background-color: #6c757d;
+      color: white;
+    }
+    #btnLimpiar:hover {
+      background-color: #555;
+    }
+    #resultado {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Contador de letras</h2>
+
+  <label>Ingrese una palabra:</label><br>
+  <input type="text" id="palabra"><br>
+
+  <label>Ingrese la letra a buscar:</label><br>
+  <input type="text" id="letra" maxlength="1"><br>
+
+  <button id="btnContar" onclick="contarLetra()">Contar letra</button>
+  <button id="btnLimpiar" onclick="limpiarCampos()">Limpiar</button>
+
+  <div id="resultado"></div>
+
+  <script>
+    // Al cargar la página, enfocar el primer input
+    window.onload = () => {
+      document.getElementById("palabra").focus();
+    };
+
+    function contarLetra() {
+      // Obtener valores
+      let pal_input = document.getElementById("palabra").value;
+      let letra_input = document.getElementById("letra").value;
+
+      // Validaciones
+      if (pal_input === "" || letra_input === "") {
+        document.getElementById("resultado").innerHTML = "⚠️ Por favor, complete ambos campos.";
+        return;
+      }
+
+      // Pasar a minúsculas
+      let pal_input_minus = pal_input.toLowerCase();
+      let letra_input_minus = letra_input.toLowerCase();
+
+      // Contar coincidencias
+      let cont = 0;
+      for (let p = 0; p < pal_input_minus.length; p++) {
+        if (pal_input_minus[p] === letra_input_minus) {
+          cont++;
+        }
+      }
+
+      // Mostrar resultado
+      document.getElementById("resultado").innerHTML =
+        `La letra <b>${letra_input.toUpperCase()}</b> se encuentra <b>${cont}</b> veces en la palabra <b>${pal_input.toUpperCase()}</b>.`;
+    }
+
+    function limpiarCampos() {
+      document.getElementById("palabra").value = "";
+      document.getElementById("letra").value = "";
+      document.getElementById("resultado").innerHTML = "";
+      // Poner el cursor en el primer input
+      document.getElementById("palabra").focus();
+    }
+  </script>
+
+</body>
+</html>

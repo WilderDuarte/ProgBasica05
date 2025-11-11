@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Tabla de multiplicar</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f4f4f9;
+      color: #333;
+    }
+    input {
+      margin: 8px 0;
+      padding: 8px;
+      font-size: 16px;
+      width: 100px;
+      text-align: center;
+    }
+    button {
+      padding: 8px 14px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      border-radius: 4px;
+      margin-right: 8px;
+    }
+    #btnMostrar {
+      background-color: #28a745;
+      color: white;
+    }
+    #btnMostrar:hover {
+      background-color: #218838;
+    }
+    #btnLimpiar {
+      background-color: #6c757d;
+      color: white;
+    }
+    #btnLimpiar:hover {
+      background-color: #555;
+    }
+    #resultado {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      background-color: white;
+      border-radius: 8px;
+      padding: 12px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.2);
+      width: fit-content;
+    }
+    table {
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    td {
+      border: 1px solid #ccc;
+      padding: 6px 12px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>📘 Generador de tabla de multiplicar</h2>
+
+  <label>Ingrese un número:</label><br>
+  <input type="number" id="numero" min="1"><br>
+
+  <button id="btnMostrar" onclick="mostrarTabla()">Mostrar tabla</button>
+  <button id="btnLimpiar" onclick="limpiarCampos()">Limpiar</button>
+
+  <div id="resultado"></div>
+
+  <script>
+    // Foco al cargar
+    window.onload = () => {
+      document.getElementById("numero").focus();
+    };
+
+    function mostrarTabla() {
+      let num = document.getElementById("numero").value;
+      let salida = document.getElementById("resultado");
+
+      if (num === "") {
+        salida.innerHTML = "⚠️ Por favor, ingrese un número.";
+        return;
+      }
+
+      num = parseInt(num);
+      let tablaHTML = `<h3>Tabla del ${num}</h3>`;
+      tablaHTML += "<table>";
+
+      // Generar tabla del 1 al 10
+      for (let i = 1; i <= 10; i++) {
+        tablaHTML += `<tr><td>${num}</td><td>x</td><td>${i}</td><td>=</td><td>${num * i}</td></tr>`;
+      }
+
+      tablaHTML += "</table>";
+      salida.innerHTML = tablaHTML;
+    }
+
+    function limpiarCampos() {
+      document.getElementById("numero").value = "";
+      document.getElementById("resultado").innerHTML = "";
+      document.getElementById("numero").focus();
+    }
+  </script>
+
+</body>
+</html>

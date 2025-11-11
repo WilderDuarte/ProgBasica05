@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Verificador de Palíndromos</title>
+  <style>
+    body { font-family: Arial; margin: 40px; }
+    input, button { padding: 8px; margin-bottom: 10px; }
+    #resultado { margin-top: 20px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h2>Verificador de Palíndromos</h2>
+  <input type="text" id="texto" placeholder="Escribe una palabra">
+  <button onclick="verificar()">Verificar</button>
+  <button onclick="limpiar()">Limpiar</button>
+  <div id="resultado"></div>
+
+  <script>
+    function verificar() {
+      let texto = document.getElementById("texto").value.toLowerCase().replace(/[^a-z]/g,'');
+      let invertido = texto.split('').reverse().join('');
+      if (texto === invertido) {
+        document.getElementById("resultado").innerText = `"${texto}" es un palíndromo.`;
+      } else {
+        document.getElementById("resultado").innerText = `"${texto}" NO es un palíndromo.`;
+      }
+    }
+
+    function limpiar() {
+      document.getElementById("texto").value = "";
+      document.getElementById("resultado").innerText = "";
+      document.getElementById("texto").focus();
+    }
+  </script>
+</body>
+</html>
